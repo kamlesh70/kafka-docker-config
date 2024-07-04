@@ -2,7 +2,7 @@ services:
     kafka:
         image: 'bitnami/kafka:latest'
         networks:
-            - kafka-custer-network
+            - kafka-cluster-network
         environment:
             - KAFKA_CFG_NODE_ID=0
             - KAFKA_CFG_PROCESS_ROLES=controller,broker
@@ -15,7 +15,7 @@ services:
         ports:
             - '9092:9092'
         volumes:
-            - ./kafka-data:/bitnami/kafka
+            - ./kafka-data:/bitnami/kafka/config
 networks:
-    kafka-custer-network:
+    kafka-cluster-network:
         driver: bridge
